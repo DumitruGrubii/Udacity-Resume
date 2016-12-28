@@ -155,7 +155,7 @@ $("#main").append(internationalizeButton);
 
 
 projects.display = function() {
-    for (project in projects.projects) {
+     projects.projects.forEach(function(object, project) {
         $("#projects").append(HTMLprojectStart);
 
         var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -174,6 +174,8 @@ projects.display = function() {
             }
         }
     }
+  )
+
 };
 
 projects.display();
@@ -193,7 +195,7 @@ education.display = function() {
         var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
         $(".education-entry:last").append(formattedSchoolDates);
     };
-    for (onlineClass in education.online) {
+    education.online.forEach(function(object, onlineClass) {
         $("#education").append(HTMLonlineClassesStart);
         $(".online-classes:last").append(HTMLonlineClasses);
         var onlineSchoolName = HTMLonlineSchool.replace("%data%", education.online[onlineClass].school);
@@ -208,6 +210,7 @@ education.display = function() {
         var onlineSchoolDates = HTMLonlineDates.replace("%data%", education.online[onlineClass].dates);
         $(".online-classes:last").append(HTMLonlineDates);
     }
+  )
 };
 
 education.display();
